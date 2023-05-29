@@ -95,4 +95,5 @@ cbar = fig.colorbar(contour)
 plt.show()
 # Save the image with desired orientation and resolution
 plt.savefig('2dimensional_image_FEL.png', dpi=600, bbox_inches='tight')
-### find the native form of the protein residing in the energy basins and try to determine the corresponding frames from the simulation trajectory 
+### find the native form of the protein residing in the energy basins and try to determine the corresponding frames from the simulation trajectory
+gmx trjconv -s md100.tpr -f md_noPBC.xtc -dt 10000 -o hs_each10ns.pdb
