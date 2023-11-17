@@ -3,6 +3,15 @@
 #### A system's potential states are mapped out in an energy landscape. The idea is commonly applied in physics, chemistry, and biochemistry to represent, among other things, all conceivable chemical configurations, the spatial locations of molecules interacting in a system, or parameters and their corresponding energy levels, usually <font color='red'> Gibbs free energy</font>.
 > # G = H – TS
 > Where, G stands for Gibbs fre energy, H stands for Heat content, T is absolute temperature and S represents entrophy of the system.
+>  ### gromacs commands:
+> #### g_covar_mpi -f fie.xtc -s file.tpr    																								| chose c-alpha (option3) X2
+> #### xmgrace eigenvalues.xvg
+> #### g_anaeig_mpi -v eigenvec.trr -f file.xtc -s file.tpr -eig eigenvalues.xvg -first 1 -last 1 -nframes 1000 -extr ev1.pdb             | chose c-alpha (option3) X2
+> #### g_anaeig_mpi -v eigenvec.trr -f file.xtc -s file.tpr -eig eigenvalues.xvg -first 2 -last 2 -nframes 1000 -extr ev1.pdb             | chose c-alpha (option3) X2
+> #### g_anaeig_mpi -v eigenvec.trr -f file.xtc -s file.tpr -eig eigenvalues.xvg -first 1 -last 2 -2d 2dproj_ev1_2.xvg                    | chose c-alpha (option3) X2
+> #### g_sham_mpi -f 2dproj_ev1_2.xvg -notime	-ls Gibbs_1_2.xpm
+> #### xpm2ps_mpi -f Gibbs_1_2.xpm -o gibbs_plot.eps -rainbow red
+
 > ### *Steps to perform 3-dimensional FEL studies:*
 ##### 1) Download and keep the Script file <font color=‘red’> “xpm2txt.py” </font> in the present working directory (pwd).
 ##### 2) Open the bash command line in the pwd: 
